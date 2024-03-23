@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "513636238703",
+    "project_id": "jasago-b3f9c",
+    "storage_bucket": "jasago-b3f9c.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:513636238703:android:2d25203d30999730ec549a",
+        "android_client_info": {
+          "package_name": "com.example.jasa_go"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyADO7S7EG-379TxyN7ODIcQey93vHLN_FA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
