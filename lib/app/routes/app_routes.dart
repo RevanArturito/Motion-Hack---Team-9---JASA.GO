@@ -3,10 +3,11 @@ part of 'app_pages.dart';
 
 abstract class Routes {
   Routes._();
-  static const HOME = _Paths.SPLASH_SCREEN;
+  static const HOME = _Paths.HOME;
   static const SPLASH_SCREEN = _Paths.SPLASH_SCREEN;
   static const SPLACH_SCREEN_2 = _Paths.SPLACH_SCREEN_2;
   static const LOGIN = _Paths.LOGIN;
+  static const REGISTER = _Paths.REGISTER;
 }
 
 abstract class _Paths {
@@ -15,4 +16,5 @@ abstract class _Paths {
   static const SPLASH_SCREEN = '/splash-screen';
   static const SPLACH_SCREEN_2 = '/splach-screen-2';
   static const LOGIN = '/login';
+  static const REGISTER = '/register';
 }

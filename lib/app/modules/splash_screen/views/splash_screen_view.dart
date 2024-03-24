@@ -9,23 +9,27 @@ class SplashScreenView extends GetView<SplashScreenController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('SplashScreenView'),
-        centerTitle: true,
-      ),
+      
       backgroundColor: Color(0xFF0066FF),
-      body: Column(
-        children: [
-          Center(
-            child: Image.asset(
-              'assets/image/logo_jasa_putih.png',
-              height: 66,
+      body: SafeArea(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Center(
+              child: Image.asset(
+                'assets/image/logo_jasa_putih.png',
+                height: 66,
+              ),
             ),
-          ),
-          // Container(
-          //   child: Image.asset('assets/image/Logo.png'),
-          // ),
-        ],
+            SizedBox(height: 12),
+            Center(
+              child: Image.asset(
+                'assets/image/Montserrat.png',
+                scale: 3.5,
+              ),
+            ),
+          ],
+        ),
       ),
     );
   }

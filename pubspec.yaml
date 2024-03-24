@@ -2,26 +2,24 @@ name: jasa_go
 version: 1.0.0+1
 publish_to: none
 description: A new Flutter project.
-environment: 
+environment:
   sdk: '>=3.3.0 <4.0.0'
 
-dependencies: 
+dependencies:
+  cloud_firestore: ^4.15.9
   cupertino_icons: ^1.0.6
   firebase_core: ^2.27.1
-  cloud_firestore: ^4.15.9
+  flutter:
+    sdk: flutter
   get: 4.6.6
-  flutter: 
-    sdk: flutter
-    
+  google_fonts: ^6.2.1
 
-dev_dependencies: 
+dev_dependencies:
   flutter_lints: ^3.0.0
-  flutter_test: 
+  flutter_test:
     sdk: flutter
-    
 
-flutter: 
+flutter:
   uses-material-design: true
   assets:
     - assets/image/
-
