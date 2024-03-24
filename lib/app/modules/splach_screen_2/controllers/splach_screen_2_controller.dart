@@ -1,7 +1,7 @@
 import 'package:get/get.dart';
 
-class ProfileController extends GetxController {
-  //TODO: Implement ProfileController
+class SplachScreen2Controller extends GetxController {
+  //TODO: Implement SplachScreen2Controller
 
   final count = 0.obs;
   @override
@@ -15,6 +15,9 @@ class ProfileController extends GetxController {
   }
 
   @override
-  void onClose() {}
+  void onClose() {
+    super.onClose();
+  }
+
   void increment() => count.value++;
 }
