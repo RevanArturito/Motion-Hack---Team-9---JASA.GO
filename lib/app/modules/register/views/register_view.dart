@@ -170,7 +170,7 @@ class RegisterView extends GetView<RegisterController> {
                             GestureDetector(
                               onTap: () => Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                  builder: (context) => RegisterView(),
+                                  builder: (context) => LoginView(),
                               ),
                               ),
                               child: Text("MASUK",
