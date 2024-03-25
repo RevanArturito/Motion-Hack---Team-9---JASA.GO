@@ -65,10 +65,16 @@ class berandapage extends StatelessWidget {
                 filled: true,
                 hintText: 'Tukang keramik',
                 hintStyle: TextStyle(color: Colors.grey),
-                suffixIcon:
-                    Image.asset('assets/image/icon_sliders.png', scale: 4),
-                prefixIcon:
-                    Image.asset('assets/image/icon_search.png', scale: 4),
+                suffixIcon: IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('assets/image/icon_sliders.png', scale: 4),
+                ),
+                //Image.asset('assets/image/icon_sliders.png', scale: 4),
+                prefixIcon: IconButton(
+                  onPressed: () {},
+                  icon: Image.asset('assets/image/icon_search.png', scale: 4),
+                ),
+                //Image.asset('assets/image/icon_search.png', scale: 4),
                 fillColor: Colors.white,
                 isDense: true,
                 contentPadding:

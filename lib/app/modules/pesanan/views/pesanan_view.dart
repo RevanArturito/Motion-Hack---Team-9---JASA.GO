@@ -52,14 +52,72 @@ class PesananPage extends StatelessWidget {
                 MaterialStatePropertyAll(Colors.black.withOpacity(0.2)),
             tabs: [
               Tab(
-                text: "Terjadwal",              
+                text: "Terjadwal",
               ),
               Tab(text: "Aktif"),
               Tab(text: "Selesai"),
             ],
           ),
         ),
+        body: const TabBarView(
+          children: [
+            terjadwalPage(),
+            aktifPage(),
+            selesaiPage(),
+          ],
+        ),
       ),
+    );
+  }
+}
+
+class terjadwalPage extends StatelessWidget {
+  const terjadwalPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          "assets/image/image_belumAdaPesan.png",
+          height: 393,
+        )
+      ],
+    );
+  }
+}
+
+class aktifPage extends StatelessWidget {
+  const aktifPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          "assets/image/image_belumAdaPesan.png",
+          height: 393,
+        )
+      ],
+    );
+  }
+}
+
+class selesaiPage extends StatelessWidget {
+  const selesaiPage({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Image.asset(
+          "assets/image/image_belumAdaPesan.png",
+          height: 393,
+        )
+      ],
     );
   }
 }
