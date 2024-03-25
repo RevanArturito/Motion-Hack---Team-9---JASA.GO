@@ -1,20 +1,13 @@
+import 'package:flutter/rendering.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+
 
 class RegisterController extends GetxController {
-  //TODO: Implement RegisterController
 
-  final count = 0.obs;
-  @override
-  void onInit() {
-    super.onInit();
-  }
+  TextEditingController email = TextEditingController(text : 'test');
+  TextEditingController password = TextEditingController(text : 'test');
 
-  @override
-  void onReady() {
-    super.onReady();
-  }
-
-  @override
-  void onClose() {}
-  void increment() => count.value++;
+ 
 }

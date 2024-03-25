@@ -2,6 +2,16 @@ import 'package:get/get.dart';
 
 import '../modules/dashboard/bindings/dashboard_binding.dart';
 import '../modules/dashboard/views/dashboard_view.dart';
+import 'package:jasa_go/app/modules/edit_akun/bindings/edit_akun_binding.dart';
+import 'package:jasa_go/app/modules/edit_akun/views/edit_akun_view.dart';
+import 'package:jasa_go/app/modules/ketentuan_privasi/bindings/ketentuan_privasi_binding.dart';
+import 'package:jasa_go/app/modules/ketentuan_privasi/views/ketentuan_privasi_view.dart';
+import 'package:jasa_go/app/modules/profile_page/bindings/profile_page_binding.dart';
+import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
+import 'package:jasa_go/app/modules/register/bindings/register_binding.dart';
+import 'package:jasa_go/app/modules/register/views/register_view.dart';
+import 'package:jasa_go/app/modules/ubah_sandi/bindings/ubah_sandi_binding.dart';
+import 'package:jasa_go/app/modules/ubah_sandi/views/ubah_sandi_view.dart';
 import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
@@ -56,7 +66,27 @@ class AppPages {
     GetPage(
       name: _Paths.PESANAN,
       page: () => const PesananView(),
-      binding: PesananBinding(),
+      binding: DialogSuccessBinding(),
+    ),
+    GetPage(
+      name: _Paths.PROFILE_PAGE,
+      page: () => ProfilePageView(),
+      binding: ProfilePageBinding(),
+    ),
+    GetPage(
+      name: _Paths.EDIT_AKUN,
+      page: () => EditAkunView(),
+      binding: EditAkunBinding(),
+    ),
+    GetPage(
+      name: _Paths.KETENTUAN_PRIVASI,
+      page: () => KetentuanPrivasiView(),
+      binding: KetentuanPrivasiBinding(),
+    ),
+    GetPage(
+      name: _Paths.UBAH_SANDI,
+      page: () => UbahSandiView(),
+      binding: UbahSandiBinding(),
     ),
   ];
 }
