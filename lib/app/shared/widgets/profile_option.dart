@@ -120,7 +120,7 @@ class ProfileOption extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    Icon(Icons.chevron_right_outlined, size: 30),
+                    //Icon(Icons.chevron_right_outlined, size: 30),
                   ],
                 ),
                 SizedBox(height: 20),
