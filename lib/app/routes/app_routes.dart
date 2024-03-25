@@ -8,6 +8,8 @@ abstract class Routes {
   static const SPLACH_SCREEN_2 = _Paths.SPLACH_SCREEN_2;
   static const LOGIN = _Paths.LOGIN;
   static const REGISTER = _Paths.REGISTER;
+  static const DASHBOARD = _Paths.DASHBOARD;
+  static const PESANAN = _Paths.PESANAN;
 }
 
 abstract class _Paths {
@@ -17,4 +19,6 @@ abstract class _Paths {
   static const SPLACH_SCREEN_2 = '/splach-screen-2';
   static const LOGIN = '/login';
   static const REGISTER = '/register';
+  static const DASHBOARD = '/dashboard';
+  static const PESANAN = '/pesanan';
 }
