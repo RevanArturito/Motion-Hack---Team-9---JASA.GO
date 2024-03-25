@@ -1,5 +1,8 @@
 // ignore_for_file: prefer_const_constructors
 
+import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
@@ -10,6 +13,7 @@ import 'package:jasa_go/app/shared/widgets/register_widget.dart';
 import '../controllers/register_controller.dart';
 
 class RegisterView extends GetView<RegisterController> {
+
   @override
    Widget build(BuildContext context) {
     return Scaffold(
@@ -59,43 +63,7 @@ class RegisterView extends GetView<RegisterController> {
                           ),
                         ),
                         registerWidget(),
-                        Align(
-                          alignment: Alignment.centerLeft,
-                          child:Text("Sandi setidaknya terdiri dari 6 karakter ",
-                          style: GoogleFonts.montserrat(
-                            fontSize: 13,
-                            fontWeight : FontWeight.w500,
-                          ),
-                          ),
-                        ),
-                        SizedBox(height: 50),
-                        Positioned(
-                          top: 420,
-                          left: 25,
-                          right: 25,
-                          child: GestureDetector(
-                            onTap: () {print("tes");},
-                            child : Container(
-                              alignment: Alignment.center,
-                              height: 48,
-                              width: 355,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
-                                ),
-                                borderRadius: BorderRadius.circular(8)
-                              ),
-                              child: Text("Daftar",
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color : Colors.white
-                                ),
-                              
-                              ),
-                            )
-                          )
-                        ),
+                        
                         SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
@@ -170,7 +138,7 @@ class RegisterView extends GetView<RegisterController> {
                             GestureDetector(
                               onTap: () => Navigator.of(context).pushReplacement(
                               MaterialPageRoute(
-                                  builder: (context) => RegisterView(),
+                                  builder: (context) => LoginView(),
                               ),
                               ),
                               child: Text("MASUK",

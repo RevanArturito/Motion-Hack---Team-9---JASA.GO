@@ -68,34 +68,7 @@ class LoginView extends GetView<LoginController> {
                             ),
                           ],
                         ),
-                        SizedBox(height: 110),
-                        Positioned(
-                          top: 420,
-                          left: 25,
-                          right: 25,
-                          child: GestureDetector(
-                            onTap: () {print("tes");},
-                            child : Container(
-                              alignment: Alignment.center,
-                              height: 48,
-                              width: 355,
-                              decoration: BoxDecoration(
-                                gradient: LinearGradient(
-                                  colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
-                                ),
-                                borderRadius: BorderRadius.circular(8)
-                              ),
-                              child: Text("Masuk",
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.bold,
-                                  color : Colors.white
-                                ),
-                              
-                              ),
-                            )
-                          )
-                        ),
+                       
                         SizedBox(height: 15),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.center,
