@@ -15,6 +15,8 @@ abstract class Routes {
   static const EDIT_AKUN = _Paths.EDIT_AKUN;
   static const KETENTUAN_PRIVASI = _Paths.KETENTUAN_PRIVASI;
   static const UBAH_SANDI = _Paths.UBAH_SANDI;
+  static const PENCARIAN = _Paths.PENCARIAN;
+}
 
 abstract class _Paths {
   _Paths._();
@@ -30,4 +32,5 @@ abstract class _Paths {
   static const EDIT_AKUN = '/edit-akun';
   static const KETENTUAN_PRIVASI = '/ketentuan-privasi';
   static const UBAH_SANDI = '/ubah-sandi';
+  static const PENCARIAN = '/pencarian';
 }

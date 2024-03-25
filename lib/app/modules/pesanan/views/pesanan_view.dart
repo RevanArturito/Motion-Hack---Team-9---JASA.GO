@@ -52,8 +52,7 @@ class PesananPage extends StatelessWidget {
                 MaterialStatePropertyAll(Colors.black.withOpacity(0.2)),
             tabs: [
               Tab(
-                text: "Terjadwal",
-                //style: GoogleFonts.montserrat(),
+                text: "Terjadwal",              
               ),
               Tab(text: "Aktif"),
               Tab(text: "Selesai"),

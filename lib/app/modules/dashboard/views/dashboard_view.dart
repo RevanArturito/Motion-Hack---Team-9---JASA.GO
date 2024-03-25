@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jasa_go/app/modules/home/views/home_view.dart';
 import 'package:jasa_go/app/modules/pesanan/views/pesanan_view.dart';
+import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
 
 import '../controllers/dashboard_controller.dart';
 
@@ -24,6 +25,7 @@ class DashboardView extends GetView<DashboardController> {
           children: [
             berandapage(),
             PesananView(),
+            ProfilePageView(),
           ],
         )),
         // const Center(

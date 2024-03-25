@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jasa_go/app/modules/controllers/authentication.dart';
+import 'package:jasa_go/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:jasa_go/app/modules/home/views/home_view.dart';
 import 'package:jasa_go/app/modules/login/views/login_view.dart';
 import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
@@ -23,7 +24,7 @@ class loginWidget extends StatelessWidget {
       if (timer.value > 0) {
         runTimer();
       } else {
-        if (Get.isDialogOpen ?? false) Get.to(() => ProfilePageView());
+        if (Get.isDialogOpen ?? false) Get.to(() => DashboardView());
       }
     });
   }

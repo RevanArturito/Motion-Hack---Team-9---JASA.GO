@@ -38,60 +38,85 @@ class EditAkunView extends GetView<EditAkunController> {
           icon: Icon(Icons.arrow_back),
           color: Colors.white),
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          children: [
-            SizedBox(height: 24),
-                  Align(
-                    child: CircleAvatar(
-                      radius: 50,
-                      child: Container(
-                        width: 100,
-                        height: 100,
-                        decoration: BoxDecoration (
-                          shape: BoxShape.circle,
-                          gradient: LinearGradient(
-                            colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 24),
+          child: Column(
+            children: [
+              SizedBox(height: 24),
+                    Align(
+                      child: CircleAvatar(
+                        radius: 50,
+                        child: Container(
+                          width: 100,
+                          height: 100,
+                          decoration: BoxDecoration (
+                            shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                              colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
+                            ),
                           ),
+                          child: Image.asset('assets/image/avatar.png'),
                         ),
-                        child: Image.asset('assets/image/avatar.png'),
                       ),
                     ),
-                  ),
-            EditAkunWidget(),
-            SizedBox(height: 288),
-            GestureDetector(
-              onTap : () {
-                Get.to(() => LoginView());
-              },
-              child: Container(
+              EditAkunWidget(),
+              SizedBox(height: 224),
+              GestureDetector(
+              onTap: () {print("tst");},
+              child : Container(
+                alignment: Alignment.center,
                 height: 48,
-                width: 358,
+                width: 355,
                 decoration: BoxDecoration(
-                  color: Colors.transparent,
-                  border: Border.all(color: Colors.red, width: 2),
-                  borderRadius: BorderRadius.circular(12)
+                  gradient: LinearGradient(
+                    colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
+                  ),
+                  borderRadius: BorderRadius.circular(8)
                 ),
-                child: Center(
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Image.asset('assets/image/log-out-02.png'),
-                      SizedBox(width: 16),
-                      Text('Logout', 
-                      style: GoogleFonts.montserrat(
-                        fontSize : 16,
-                        color: Colors.red,
-                        fontWeight: FontWeight.bold,
+                child: Text("Simpan Perubahan",
+                  style: GoogleFonts.montserrat(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color : Colors.white
+                  ),
+                
+                ),
+              )
+            ),
+            SizedBox(height: 16),
+              GestureDetector(
+                onTap : () {
+                  Get.to(() => LoginView());
+                },
+                child: Container(
+                  height: 48,
+                  width: 358,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    border: Border.all(color: Colors.red, width: 2),
+                    borderRadius: BorderRadius.circular(12)
+                  ),
+                  child: Center(
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        Image.asset('assets/image/log-out-02.png'),
+                        SizedBox(width: 16),
+                        Text('Logout', 
+                        style: GoogleFonts.montserrat(
+                          fontSize : 16,
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                        ),
                       ),
+                      ],
                     ),
-                    ],
                   ),
                 ),
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
       

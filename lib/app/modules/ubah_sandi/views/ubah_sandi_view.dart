@@ -92,7 +92,7 @@ class UbahSandiView extends GetView<UbahSandiController> {
                         decoration: InputDecoration(
                           suffixIcon: Icon(Icons.remove_red_eye_outlined),
                           filled: true,
-                          hintText: 'Kata sandi baaru',
+                          hintText: 'Kata sandi baru',
                           hintStyle: TextStyle(color: Colors.grey),
                           fillColor: Colors.white,
                           focusedBorder: OutlineInputBorder(
