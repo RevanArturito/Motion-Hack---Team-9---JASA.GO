@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -41,13 +43,42 @@ class berandapage extends StatelessWidget {
                     SizedBox(
                       height: 5,
                     ),
-                    Text(
-                      "John Doe",
-                      style: GoogleFonts.montserrat(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
+                    // Text(
+                    //   "John Doe",
+                    //   style: GoogleFonts.montserrat(
+                    //     color: Colors.white,
+                    //     fontWeight: FontWeight.bold,
+                    //   ),
+                    // ),
+
+                    StreamBuilder(
+                        stream: FirebaseFirestore.instance
+                            .collection('User')
+                            .snapshots(),
+                        builder: (context, snapshot) {
+                          if (snapshot.connectionState ==
+                              ConnectionState.waiting) {
+                            return Text("Mohon tunggu...");
+                          }
+
+                          if (!snapshot.hasData) {
+                            return Text("Tidak ada data...");
+                          }
+
+                          return Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                snapshot.data!.docs.first['nama_lengkap'],
+                                style: GoogleFonts.montserrat(
+                                  fontSize: 24,
+                                  color: Colors.white,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ],
+                          );
+                        })
                   ],
                 ),
                 IconButton(
@@ -88,22 +119,147 @@ class berandapage extends StatelessWidget {
           ],
         ),
         backgroundColor: Colors.blue,
-        toolbarHeight: 160,
+        toolbarHeight: 194,
       ),
-      body: Column(
-        children: [
-          SizedBox(
-            height: 36,
+      body: SafeArea(
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 10),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              SizedBox(
+                height: 36,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 10),
+                child: Text(
+                  "Kategori",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                  ),
+                ),
+              ),
+              SizedBox(
+                height: 25,
+              ),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  // MainAxisAlignment
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_keran.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Bocor"),
+                    ],
+                  ),
+
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_genteng.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Genteng"),
+                      Text("& Palfon"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_cat.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Cat"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_dinding.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Dinding"),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(
+                height: 30,
+              ),
+              Row(
+                // crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_toilet.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Toilet"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_keramik.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Keramik"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_jendela.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Jendela"),
+                    ],
+                  ),
+                  Column(
+                    children: [
+                      IconButton(
+                        onPressed: () {},
+                        icon: Image.asset(
+                          "assets/image/button_listrik.png",
+                          scale: 4,
+                        ),
+                      ),
+                      Text("Listrik"),
+                    ],
+                  ),
+                ],
+              )
+            ],
           ),
-          Text(
-            "Kategori",
-            style: GoogleFonts.montserrat(
-              color: Colors.black,
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-            ),
-          ),
-        ],
+        ),
       ),
     );
   }
