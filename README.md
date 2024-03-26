@@ -1,4 +1,5 @@
 # jasa_go
+Aplikasi ini merupakan platform yang menyediakan layanan tukang, berdasarkan permintaan dan kebutuhan pelanggan. Aplikasi ini mencakup berbagai layanan, mulai dari perbaikan rumah hingga renovasi. Tujuannya adalah untuk menyederhanakan proses pencarian, pemesanan, dan manajemen layanan tukang. 
 
 ## Installation
 
