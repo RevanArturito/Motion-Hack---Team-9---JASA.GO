@@ -13,7 +13,7 @@ class PembayaranView extends GetView<PembayaranController> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xFFD1DFF3),
+      backgroundColor: Color(0xFFFAFCFF),
       appBar: AppBar(
         toolbarHeight: 86, 
         flexibleSpace: Container(
@@ -41,48 +41,53 @@ class PembayaranView extends GetView<PembayaranController> {
       ),
       body: SafeArea(
         child: SingleChildScrollView(
-          child: Column(
-            children: [
-              SizedBox(height: 28),
-              Align(
-                child: Container(
-                  height: 65,
-                  width: 359,
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    borderRadius: BorderRadius.circular(12),
-                  ),
-                  child: Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16 ),
-                    child: 
-                      Padding(
-                        padding: EdgeInsetsDirectional.symmetric(horizontal: 18),
-                        child: Row(
-                          children: [
-                            Text(
-                              "Sisa Waktu Pembayaran",
-                              style: GoogleFonts.montserrat(
-                                color: Color(0xFFC90C00),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                            Spacer(),
-                            Text(
-                              "0.59.59",
-                              style: GoogleFonts.montserrat(
-                                color: Color(0xFFC90C00),
-                                fontWeight: FontWeight.bold,
-                              ),
-                            ),
-                          ],
-                        ) 
-                      ),
+          child: Padding(
+            padding: EdgeInsets.symmetric(horizontal: 24),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                SizedBox(height: 16),
+                Text(
+                  "Virtual Accounts",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize : 16,
                   ),
                 ),
-              ),
-              SizedBox(height: 29),
-              PembayaranWidget1()
-            ],
+                SizedBox(height: 4),
+                Text(
+                  "Tanpa biaya admin",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize : 14,
+                  ),
+                ),
+                SizedBox(height: 16),
+                PembayaranWidget1(),
+                SizedBox(height: 35),
+                Text(
+                  "E-Wallet",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontWeight: FontWeight.bold,
+                    fontSize : 16,
+                  ),
+                ),
+                SizedBox(height: 4),
+                Text(
+                  "Biaya admin bergantung platform",
+                  style: GoogleFonts.montserrat(
+                    color: Colors.black,
+                    fontWeight: FontWeight.w500,
+                    fontSize : 14,
+                  ),
+                ),
+                SizedBox(height: 16),
+                PembayaranWidget1_2()
+              ],
+            ),
           ),
         ),
       )

@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jasa_go/app/modules/dashboard/views/dashboard_view.dart';
 import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
 
 import '../controllers/ubah_sandi_controller.dart';
@@ -12,6 +13,70 @@ class UbahSandiView extends GetView<UbahSandiController> {
   final _oldPassController = TextEditingController();
   final _newPassController2 = TextEditingController();
   var isButtonActive = true.obs;
+
+  final timer = 2.obs;
+  void runTimer() {
+    Future.delayed(Duration(seconds: 1), () {
+      timer.value--;
+      if (timer.value > 0) {
+        runTimer();
+      } else {
+        if (Get.isDialogOpen ?? false) Get.to(() => DashboardView());
+      }
+    });
+  }
+
+  
+  void showDialog() {
+    timer.value = 2;
+    runTimer();
+    Get.dialog(
+        barrierDismissible: false,
+        Dialog(
+          backgroundColor: Colors.transparent,
+          child: PopScope(
+          
+            child: Container(
+              padding: EdgeInsets.all(10),
+              decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20)),
+              child: Column(
+                mainAxisSize: MainAxisSize.min,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  SizedBox(height: 31),
+                  Image.asset("assets/image/check-circle-broken.png"),
+                  SizedBox(height: 24),
+                  InkWell(
+                    onTap: () {
+                        //Get.to(() => DashboardView());
+                    }, child: Center(
+                    child: Container(
+                      height:50,
+                      width: double.infinity,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: const BorderRadius.all(Radius.circular(10))
+                      ),
+                      child: Text("Password berhasil diganti",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 20,
+                          fontWeight: FontWeight.w500,
+                          color : Colors.black
+                        ),
+                      
+                      ),
+                    ),
+                  ),),
+                ],
+              ),
+            ),
+          ),
+        )
+    );
+  }
 
   void isChange() {
     if (_newPassController.text.isNotEmpty && _newPassController2.text.isNotEmpty  && _oldPassController.text.isNotEmpty) {
@@ -69,6 +134,7 @@ class UbahSandiView extends GetView<UbahSandiController> {
                   children: [
                     Expanded(
                       child: TextField(
+                        obscureText: true,
                         onChanged: (value) {
                           isChange();
                         },
@@ -102,6 +168,7 @@ class UbahSandiView extends GetView<UbahSandiController> {
                   children: [
                     Expanded(
                       child: TextField(
+                        obscureText: true,
                         onChanged: (value) {
                           isChange();
                         },
@@ -135,6 +202,7 @@ class UbahSandiView extends GetView<UbahSandiController> {
                   children: [
                     Expanded(
                       child: TextField(
+                        obscureText: true,
                         onChanged: (value) {
                           isChange();
                         },
@@ -166,7 +234,7 @@ class UbahSandiView extends GetView<UbahSandiController> {
               SizedBox(height: 16),
                Obx(() =>  GestureDetector(
                 onTap: () {
-                  Get.to(() => ProfilePageView());
+                  showDialog();
                 },
                 child : Container(
                   alignment: Alignment.center,

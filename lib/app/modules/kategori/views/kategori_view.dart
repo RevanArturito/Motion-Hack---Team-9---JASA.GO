@@ -1,16 +1,19 @@
-// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jasa_go/app/shared/widgets/tukang.dart';
+import 'package:radio_group_v2/radio_group_v2.dart';
+import '../controllers/kategori_controller.dart';
+import 'package:group_radio_button/group_radio_button.dart';
 
-import '../controllers/pencarian_controller.dart';
-
-class PencarianView extends GetView<PencarianController> {
+class KategoriView extends GetView<KategoriController> {
   @override
-  Widget build(BuildContext context) {
+   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         toolbarHeight: 86, 
@@ -252,8 +255,6 @@ class PencarianView extends GetView<PencarianController> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   SizedBox(height: 30),
-                  TukangFavorit(),
-                  SizedBox(height: 20),
                   Tukang(
                     nama: "Andi Suherman", 
                     spesialis: "cat", 
@@ -281,7 +282,20 @@ class PencarianView extends GetView<PencarianController> {
                     penilaian: "3.9", 
                     total_kerja: "57"
                   ),
-                  SizedBox(height: 20)
+                  SizedBox(height: 20),
+                  Tukang(
+                    nama: "Gojou Santoso", 
+                    spesialis: "cat", 
+                    penilaian: "5.0", 
+                    total_kerja: "999"
+                  ),
+                  SizedBox(height: 20),
+                  Tukang(
+                    nama: "Itadori Yanto", 
+                    spesialis: "cat", 
+                    penilaian: "4.8", 
+                    total_kerja: "83"
+                  ),
                 ],
               ),
             ),
@@ -290,4 +304,5 @@ class PencarianView extends GetView<PencarianController> {
       ),
     );
   }
+
 }

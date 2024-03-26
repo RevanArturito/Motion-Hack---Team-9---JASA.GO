@@ -2,6 +2,8 @@ import 'package:get/get.dart';
 
 import 'package:jasa_go/app/modules/edit_akun/bindings/edit_akun_binding.dart';
 import 'package:jasa_go/app/modules/edit_akun/views/edit_akun_view.dart';
+import 'package:jasa_go/app/modules/kategori/bindings/kategori_binding.dart';
+import 'package:jasa_go/app/modules/kategori/views/kategori_view.dart';
 import 'package:jasa_go/app/modules/ketentuan_privasi/bindings/ketentuan_privasi_binding.dart';
 import 'package:jasa_go/app/modules/ketentuan_privasi/views/ketentuan_privasi_view.dart';
 import 'package:jasa_go/app/modules/notifikasi/bindings/notifikasi_binding.dart';
@@ -12,6 +14,8 @@ import 'package:jasa_go/app/modules/pembayaran2/bindings/pembayaran2_binding.dar
 import 'package:jasa_go/app/modules/pembayaran2/views/pembayaran2_view.dart';
 import 'package:jasa_go/app/modules/pencarian/bindings/pencarian_binding.dart';
 import 'package:jasa_go/app/modules/pencarian/views/pencarian_view.dart';
+import 'package:jasa_go/app/modules/pesan_tukang/bindings/pesan_tukang_binding.dart';
+import 'package:jasa_go/app/modules/pesan_tukang/views/pesan_tukang_view.dart';
 import 'package:jasa_go/app/modules/profile_page/bindings/profile_page_binding.dart';
 import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
 import 'package:jasa_go/app/modules/register/bindings/register_binding.dart';
@@ -35,7 +39,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.DASHBOARD;
+  static const INITIAL = Routes.LOGIN;
 
   static final routes = [
     GetPage(
@@ -107,6 +111,16 @@ class AppPages {
       name: _Paths.PEMBAYARAN2,
       page: () => Pembayaran2View(),
       binding: Pembayaran2Binding(),
+    ),
+    GetPage(
+      name: _Paths.KATEGORI,
+      page: () => KategoriView(),
+      binding: KategoriBinding(),
+    ),
+    GetPage(
+      name: _Paths.PESAN_TUKANG,
+      page: () => PesanTukangView(),
+      binding: PesanTukangBinding(),
     ),
   ];
 }

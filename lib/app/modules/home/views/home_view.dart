@@ -1,9 +1,14 @@
+// ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
+
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:jasa_go/app/modules/kategori/views/kategori_view.dart';
+import 'package:jasa_go/app/modules/pencarian/views/pencarian_view.dart';
 
 import '../controllers/home_controller.dart';
 
@@ -28,92 +33,96 @@ class berandapage extends StatelessWidget {
         automaticallyImplyLeading: false,
         title: Column(
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  children: [
-                    Text(
-                      "Selamat Datang",
-                      style: GoogleFonts.montserrat(
-                        color: Colors.white,
-                        fontSize: 13,
-                        fontWeight: FontWeight.w500,
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 12),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Selamat Datang",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.white,
+                          fontSize: 15,
+                          fontWeight: FontWeight.w500,
+                        ),
                       ),
-                    ),
-                    SizedBox(
-                      height: 5,
-                    ),
-                    // Text(
-                    //   "John Doe",
-                    //   style: GoogleFonts.montserrat(
-                    //     color: Colors.white,
-                    //     fontWeight: FontWeight.bold,
-                    //   ),
-                    // ),
-
-                    StreamBuilder(
-                        stream: FirebaseFirestore.instance
-                            .collection('User')
-                            .snapshots(),
-                        builder: (context, snapshot) {
-                          if (snapshot.connectionState ==
-                              ConnectionState.waiting) {
-                            return Text("Mohon tunggu...");
-                          }
-
-                          if (!snapshot.hasData) {
-                            return Text("Tidak ada data...");
-                          }
-
-                          return Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            children: [
-                              Text(
-                                snapshot.data!.docs.first['nama_lengkap'],
-                                style: GoogleFonts.montserrat(
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
+                      SizedBox(
+                        height: 5,
+                      ),
+                      StreamBuilder(
+                          stream: FirebaseFirestore.instance
+                              .collection('User')
+                              .snapshots(),
+                          builder: (context, snapshot) {
+                            if (snapshot.connectionState ==
+                                ConnectionState.waiting) {
+                              return Text("Mohon tunggu...");
+                            }
+              
+                            if (!snapshot.hasData) {
+                              return Text("Tidak ada data...");
+                            }
+              
+                            return Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                Text(
+                                  snapshot.data!.docs.first['nama_lengkap'],
+                                  style: GoogleFonts.montserrat(
+                                    fontSize: 24,
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.bold,
+                                  ),
                                 ),
-                              ),
-                            ],
-                          );
-                        })
-                  ],
-                ),
-                IconButton(
-                  onPressed: () {},
-                  icon: Image.asset(
-                    "assets/image/icon_bell.png",
-                    height: 24,
+                              ],
+                            );
+                          })
+                    ],
                   ),
-                )
-              ],
+                  Spacer(),
+                  IconButton(
+                    onPressed: () {},
+                    icon: Image.asset(
+                      "assets/image/icon_bell.png",
+                      height: 24,
+                    ),
+                  )
+                ],
+              ),
             ),
             SizedBox(height: 18),
-            TextField(
-              decoration: InputDecoration(
-                filled: true,
-                hintText: 'Tukang keramik',
-                hintStyle: TextStyle(color: Colors.grey),
-                suffixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/image/icon_sliders.png', scale: 4),
-                ),
-                //Image.asset('assets/image/icon_sliders.png', scale: 4),
-                prefixIcon: IconButton(
-                  onPressed: () {},
-                  icon: Image.asset('assets/image/icon_search.png', scale: 4),
-                ),
-                //Image.asset('assets/image/icon_search.png', scale: 4),
-                fillColor: Colors.white,
-                isDense: true,
-                contentPadding:
-                    const EdgeInsets.only(left: 14.0, bottom: 8.0, top: 8.0),
-                border: OutlineInputBorder(
-                  borderSide: BorderSide.none,
+            GestureDetector(
+              onTap: () {
+                Get.to(() => PencarianView());
+              },
+              child: Container(
+                height: 48,
+                width: 358,
+                decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(12),
+                  color: Colors.white,
+                ),
+                child: Padding(
+                  padding: EdgeInsets.symmetric(horizontal: 16),
+                  child: Row(
+                    children: [
+                      Icon(Icons.search_rounded),
+                      SizedBox(width: 10),
+                      Text(
+                        "Cari tukang",
+                        style: GoogleFonts.montserrat(
+                          fontSize: 14,
+                          color: Colors.grey,
+                          fontWeight: FontWeight.w500,
+                        ),
+                      ),
+                      Spacer(),
+                      Image.asset('assets/image/icon_sliders.png', scale: 4)
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -152,7 +161,9 @@ class berandapage extends StatelessWidget {
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_keran.png",
                           scale: 4,
@@ -165,20 +176,23 @@ class berandapage extends StatelessWidget {
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_genteng.png",
                           scale: 4,
                         ),
                       ),
                       Text("Genteng"),
-                      Text("& Palfon"),
                     ],
                   ),
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_cat.png",
                           scale: 4,
@@ -190,7 +204,9 @@ class berandapage extends StatelessWidget {
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_dinding.png",
                           scale: 4,
@@ -211,7 +227,9 @@ class berandapage extends StatelessWidget {
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_toilet.png",
                           scale: 4,
@@ -235,7 +253,9 @@ class berandapage extends StatelessWidget {
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_jendela.png",
                           scale: 4,
@@ -247,7 +267,9 @@ class berandapage extends StatelessWidget {
                   Column(
                     children: [
                       IconButton(
-                        onPressed: () {},
+                        onPressed: () {
+                          Get.to(() => KategoriView());
+                        },
                         icon: Image.asset(
                           "assets/image/button_listrik.png",
                           scale: 4,

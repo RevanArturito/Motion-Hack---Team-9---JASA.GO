@@ -25,7 +25,7 @@ class LoginView extends GetView<LoginController> {
               decoration: const BoxDecoration(
                 image: DecorationImage(
                   image: AssetImage(
-                    "assets/image/back-doodle.png",
+                    "assets/background/back-doodle.png",
                   ),
                   fit: BoxFit.cover,
                 ),

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jasa_go/app/modules/dashboard/views/dashboard_view.dart';
@@ -8,69 +9,6 @@ import 'package:jasa_go/app/modules/pembayaran2/views/pembayaran2_view.dart';
 
 class PembayaranWidget1 extends StatelessWidget {
   //const PembayaranWidget1({super.key});
-  final timer = 2.obs;
-  void runTimer() {
-    Future.delayed(Duration(seconds: 1), () {
-      timer.value--;
-      if (timer.value > 0) {
-        runTimer();
-      } else {
-        if (Get.isDialogOpen ?? false) Get.to(() => DashboardView());
-      }
-    });
-  }
-
-  
-  void showDialog() {
-    timer.value = 2;
-    runTimer();
-    Get.dialog(
-        barrierDismissible: false,
-        Dialog(
-          backgroundColor: Colors.transparent,
-          child: PopScope(
-          
-            child: Container(
-              padding: EdgeInsets.all(10),
-              decoration: BoxDecoration(
-                  color: Colors.white,
-                  borderRadius: BorderRadius.circular(20)),
-              child: Column(
-                mainAxisSize: MainAxisSize.min,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: [
-                  SizedBox(height: 31),
-                  Image.asset("assets/image/check-circle-broken.png"),
-                  SizedBox(height: 24),
-                  InkWell(
-                    onTap: () {
-                        Get.to(() => DashboardView());
-                    }, child: Center(
-                    child: Container(
-                      height:50,
-                      width: double.infinity,
-                      alignment: Alignment.center,
-                      decoration: BoxDecoration(
-                          color: Colors.white,
-                          borderRadius: const BorderRadius.all(Radius.circular(10))
-                      ),
-                      child: Text("Berhasil login",
-                        style: GoogleFonts.montserrat(
-                          fontSize: 20,
-                          fontWeight: FontWeight.w500,
-                          color : Colors.black
-                        ),
-                      
-                      ),
-                    ),
-                  ),),
-                ],
-              ),
-            ),
-          ),
-        )
-    );
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -84,6 +22,14 @@ class PembayaranWidget1 extends StatelessWidget {
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+              ),
+          ],
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 22, vertical: 16),
@@ -146,17 +92,150 @@ class PembayaranWidget1 extends StatelessWidget {
   }
 }
 
+class PembayaranWidget1_2 extends StatelessWidget {
+  //const PembayaranWidget1({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      onTap: () {
+        Get.to(() => Pembayaran2View());
+      },
+      child: Container(
+        height: 291,
+        width: 358,
+        decoration: BoxDecoration(
+          color: Colors.white,
+          borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+              ),
+          ],
+        ),
+        child: Padding(
+          padding: EdgeInsets.symmetric(horizontal: 22, vertical: 16),
+          child: Column(
+            children: [
+              SizedBox(height: 25),
+              Row(
+                children: [
+                  Image.asset('assets/image/gopay-logo.png', scale: 1.2),
+                  SizedBox(width: 32),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Gopay",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize : 14,
+                        ),
+                      ),
+                      Text(
+                        "Biaya admin Rp.1000",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize : 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
+              Divider(color: Color(0xFFD1DFF3)),
+              SizedBox(height: 15),
+              Row(
+                children: [
+                  Image.asset('assets/image/dana-logo.png', scale: 1.2),
+                  SizedBox(width: 32),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "Dana",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize : 14,
+                        ),
+                      ),
+                      Text(
+                        "Biaya admin Rp.1500",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize : 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              SizedBox(height: 15),
+              Divider(color: Color(0xFFD1DFF3)),
+              SizedBox(height: 15),
+              Row(
+                children: [
+                  Image.asset('assets/image/shoppe-logo.png', scale: 1.2),
+                  SizedBox(width: 32),
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        "ShopeePay",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w600,
+                          fontSize : 14,
+                        ),
+                      ),
+                      Text(
+                        "Biaya admin Rp.1000",
+                        style: GoogleFonts.montserrat(
+                          color: Colors.black,
+                          fontWeight: FontWeight.w500,
+                          fontSize : 12,
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              ),
+              
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+}
+
 class PembayaranWidget2 extends StatelessWidget {
   const PembayaranWidget2({super.key});
 
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: 291,
+        height: 372,
         width: 358,
         decoration: BoxDecoration(
           color: Colors.white,
           borderRadius: BorderRadius.circular(12),
+          boxShadow: [
+              BoxShadow(
+                  color: Colors.grey.withOpacity(0.1),
+                  spreadRadius: 5,
+                  blurRadius: 7,
+                  offset: Offset(0, 3), // changes position of shadow
+              ),
+          ],
         ),
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 22, vertical: 14),
@@ -166,7 +245,7 @@ class PembayaranWidget2 extends StatelessWidget {
               Row(
                 children: [
                   Text(
-                    "Total harga",
+                    "Total tukang yang dipilih",
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
@@ -175,7 +254,7 @@ class PembayaranWidget2 extends StatelessWidget {
                   ),
                   Spacer(),
                   Text(
-                    "Rp.150.000",
+                    "1",
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
                       fontWeight: FontWeight.w600,
@@ -190,10 +269,32 @@ class PembayaranWidget2 extends StatelessWidget {
               Row(
                 children: [
                   Text(
+                    "Andi Suherman",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize : 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Cat  ",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize : 14,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 71),
+              Row(
+                children: [
+                  Text(
                     "Invoice",
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       fontSize : 14,
                     ),
                   ),
@@ -202,71 +303,124 @@ class PembayaranWidget2 extends StatelessWidget {
                     "GO2024032610090",
                     style: GoogleFonts.montserrat(
                       color: Colors.black,
-                      fontWeight: FontWeight.w600,
+                      fontWeight: FontWeight.w500,
                       fontSize : 14,
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: 70),
-              GestureDetector(
-                onTap: () {
-                  Get.to(() => DashboardView());
-                },
-                child : Container(
-                  alignment: Alignment.center,
-                  height: 48,
-                  width: 355,
-                  decoration: BoxDecoration(
-                    gradient : LinearGradient(
-                      colors: [Color(0xFF0066FF),Color(0xFF23A9F8)]
-                    ),
-                    borderRadius: BorderRadius.circular(8)
-                  ),
-                  child: Text("Bayar Sekarang",
-                    style: GoogleFonts.montserrat(
-                      fontSize: 16,
-                      fontWeight: FontWeight.bold,
-                      color : Colors.white
-                    ),
-                  ),
-                )
-              ),
-              SizedBox(height: 15),
-              Text(
-                "Dengan melakukan pembayaran Anda menyetujui",
-                style: GoogleFonts.montserrat(
-                  color: Colors.black,
-                  fontWeight: FontWeight.w500,
-                  fontSize : 11,
-                ),
-              ),
+              SizedBox(height: 11),
               Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-               children : [
-                Text( "seluruh ",
-                  style: GoogleFonts.montserrat(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize : 11,
-                  ), 
-                ),
-                Text( "Syarat & Ketentuan ",
-                  style: GoogleFonts.montserrat(
-                    color: Color(0xFF0066FF),
-                    fontWeight: FontWeight.w500,
-                    fontSize : 11,
-                  ), 
-                ),
-                Text( "jasa.go",
-                  style: GoogleFonts.montserrat(
-                    color: Colors.black,
-                    fontWeight: FontWeight.w500,
-                    fontSize : 11,
-                  ), 
-                ),
-               ]   
+                children: [
+                  Text(
+                    "Pembayaran",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "E-Walett Gopay",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                ],
               ),
+              SizedBox(height: 11),
+              Row(
+                children: [
+                  Text(
+                    "SubTotal",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Rp.150.000",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 11),
+              Row(
+                children: [
+                  Text(
+                    "Biaya tambahan aplikasi",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Rp.15.000",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: 11),
+              Row(
+                children: [
+                  Text(
+                    "Biaya Administrasi",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Rp.1.000",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                ],
+              ),
+              Divider(color: Color(0xFFD1DFF3)),
+              SizedBox(height: 5),
+              Row(
+                children: [
+                  Text(
+                    "Total Biaya",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.bold,
+                      fontSize : 14,
+                    ),
+                  ),
+                  Spacer(),
+                  Text(
+                    "Rp.166.000",
+                    style: GoogleFonts.montserrat(
+                      color: Colors.black,
+                      fontWeight: FontWeight.w500,
+                      fontSize : 14,
+                    ),
+                  ),
+                ],
+              ),
+              
             ],
           ),
         ),
