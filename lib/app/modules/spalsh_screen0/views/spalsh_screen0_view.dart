@@ -1,18 +1,18 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:jasa_go/app/modules/splach_screen_2/views/splach_screen_2_view.dart';
+import 'package:jasa_go/app/modules/splash_screen/views/splash_screen_view.dart';
 
-import '../controllers/splash_screen_controller.dart';
+import '../controllers/spalsh_screen0_controller.dart';
 
-class SplashScreenView extends GetView<SplashScreenController> {
-  const SplashScreenView({Key? key}) : super(key: key);
+class SpalshScreen0View extends GetView<SpalshScreen0Controller> {
+  const SpalshScreen0View({Key? key}) : super(key: key);
   @override
   Widget build(BuildContext context) {
-    Future.delayed(const Duration(seconds: 3)).then((value) {
+    Future.delayed(const Duration(seconds: 2)).then((value) {
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(
-            builder: (context) => SplachScreen2View(),
+            builder: (context) => SplashScreenView(),
           ),
           (route) => false);
     });
@@ -27,13 +27,6 @@ class SplashScreenView extends GetView<SplashScreenController> {
               child: Image.asset(
                 'assets/image/logo_jasa_putih.png',
                 height: 66,
-              ),
-            ),
-            SizedBox(height: 12),
-            Center(
-              child: Image.asset(
-                'assets/image/Montserrat.png',
-                scale: 3.5,
               ),
             ),
           ],

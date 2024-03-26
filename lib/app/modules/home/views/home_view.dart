@@ -134,6 +134,12 @@ class berandapage extends StatelessWidget {
         ),
         backgroundColor: Colors.blue,
         toolbarHeight: 194,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(12),
+            bottomRight: Radius.circular(12),
+          ),
+        ),
       ),
       body: SafeArea(
         child: Padding(

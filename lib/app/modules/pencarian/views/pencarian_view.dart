@@ -245,6 +245,12 @@ class PencarianView extends GetView<PencarianController> {
             ),
           ],
         ),
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.only(
+            bottomLeft: Radius.circular(12),
+            bottomRight: Radius.circular(12),
+          ),
+        ),
       ),
       // ignore: prefer_const_constructors
       body: SafeArea(
