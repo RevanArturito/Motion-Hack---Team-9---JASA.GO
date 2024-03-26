@@ -21,6 +21,7 @@ abstract class Routes {
   static const PEMBAYARAN2 = _Paths.PEMBAYARAN2;
   static const KATEGORI = _Paths.KATEGORI;
   static const PESAN_TUKANG = _Paths.PESAN_TUKANG;
+  static const SPALSH_SCREEN0 = _Paths.SPALSH_SCREEN0;
 }
 
 abstract class _Paths {
@@ -43,4 +44,5 @@ abstract class _Paths {
   static const PEMBAYARAN2 = '/pembayaran2';
   static const KATEGORI = '/kategori';
   static const PESAN_TUKANG = '/pesan-tukang';
+  static const SPALSH_SCREEN0 = '/spalsh-screen0';
 }
