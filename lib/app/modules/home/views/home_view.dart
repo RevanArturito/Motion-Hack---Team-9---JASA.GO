@@ -1,5 +1,6 @@
 // ignore_for_file: prefer_const_literals_to_create_immutables, prefer_const_constructors
 
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
@@ -8,6 +9,7 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:jasa_go/app/modules/kategori/views/kategori_view.dart';
+import 'package:jasa_go/app/modules/notifikasi/views/notifikasi_view.dart';
 import 'package:jasa_go/app/modules/pencarian/views/pencarian_view.dart';
 
 import '../controllers/home_controller.dart';
@@ -61,11 +63,11 @@ class berandapage extends StatelessWidget {
                                 ConnectionState.waiting) {
                               return Text("Mohon tunggu...");
                             }
-              
+
                             if (!snapshot.hasData) {
                               return Text("Tidak ada data...");
                             }
-              
+
                             return Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -84,7 +86,9 @@ class berandapage extends StatelessWidget {
                   ),
                   Spacer(),
                   IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      Get.to(NotifikasiView());
+                    },
                     icon: Image.asset(
                       "assets/image/icon_bell.png",
                       height: 24,
@@ -137,9 +141,26 @@ class berandapage extends StatelessWidget {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              SizedBox(
-                height: 36,
-              ),
+              // SizedBox(
+              //   height: 36,
+              // ),
+              // CarouselSlider(
+              //   options: CarouselOptions(height: 100),
+              //   items: [1, 2, 3, 4, 5].map((i) {
+              //     return Builder(
+              //       builder: (BuildContext context) {
+              //         return Container(
+              //           width: MediaQuery.of(context).size.width,
+              //           margin: EdgeInsets.symmetric(horizontal: 5.0),
+              //           //decoration: BoxDecoration(color: Colors.amber),
+              //           child: Image.asset("assets/image/sliders_baner.png"),
+              //         );
+              //       },
+              //     );
+              //   }).toList(),
+              // ),
+
+              CarouselDemo(),
               Container(
                 padding: EdgeInsets.only(left: 10),
                 child: Text(
@@ -294,3 +315,33 @@ class berandapage extends StatelessWidget {
 //           style: TextStyle(fontSize: 20),
 //         ),
 //       ),
+
+//
+
+class CarouselDemo extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      children: <Widget>[
+        CarouselSlider(
+          items: [
+            Image.asset('assets/image/sliders_baner.png'),
+          ],
+          carouselController: CarouselController(),
+          options: CarouselOptions(
+            autoPlay: true,
+            enlargeCenterPage: true,
+            viewportFraction: 0.9,
+            aspectRatio: 2.0,
+            initialPage: 2,
+          ),
+        ),
+        // RaisedButton(
+        //   onPressed: () => CarouselController().nextPage(
+        //       duration: Duration(milliseconds: 300), curve: Curves.linear),
+        //   child: Text('→'),
+        // )
+      ],
+    );
+  }
+}
