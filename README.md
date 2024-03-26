@@ -1,16 +1,28 @@
 # jasa_go
 
-A new Flutter project.
+## Installation
 
-## Getting Started
+Clone project ini
 
-This project is a starting point for a Flutter application.
+```bash
+https://github.com/Azis202017/Better-App.git
+```
 
-A few resources to get you started if this is your first Flutter project:
+Mendapatkan dependency
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+```bash
+flutter pub get
+```
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Menjalankan project
+
+```bash
+flutter run
+```
+
+Akun demo
+
+```bash
+Email : revan.arturito2@gmail.com
+Password : 123456
+```
