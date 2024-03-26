@@ -5,7 +5,7 @@
 Clone project ini
 
 ```bash
-https://github.com/Azis202017/Better-App.git
+https://github.com/RevanArturito/JASA.GO.git
 ```
 
 Mendapatkan dependency
