@@ -2,6 +2,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jasa_go/app/modules/dashboard/views/dashboard_view.dart';
+import 'package:jasa_go/app/modules/login/views/login_view.dart';
 import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
 
 
@@ -194,10 +196,10 @@ class EditAkunWidget extends StatelessWidget {
                 )
               ],
             ),
-             SizedBox(height: 224),
+             SizedBox(height: 40),
              Obx(() =>  GestureDetector(
                 onTap: () {
-                  Get.to(() => ProfilePageView());
+                  Get.to(() => DashboardView());
                 },
                 child : Container(
                   alignment: Alignment.center,
@@ -225,7 +227,36 @@ class EditAkunWidget extends StatelessWidget {
                     )
                   )
                 ),
-              SizedBox(height: 16),
+              SizedBox(height: 146),
+              GestureDetector(
+                onTap: () {
+                  Get.to(() => LoginView());
+                },
+                child : Container(
+                  alignment: Alignment.center,
+                  height: 48,
+                  width: 355,
+                  decoration: BoxDecoration(
+                    color: Colors.transparent,
+                    borderRadius: BorderRadius.circular(8),
+                    border: Border.all(color: Colors.red)
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Image.asset('assets/image/log-out-02.png',scale: 1.2),
+                      SizedBox(width: 7),
+                      Text("Logout",
+                      style: GoogleFonts.montserrat(
+                        fontSize: 16,
+                        fontWeight: FontWeight.bold,
+                        color : Colors.red
+                      ),
+                      ),
+                    ],
+                  ),
+                    )
+                  )
           ],
         );
         }
