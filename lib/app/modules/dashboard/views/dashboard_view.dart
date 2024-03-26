@@ -9,33 +9,21 @@ import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
 import '../controllers/dashboard_controller.dart';
 
 class DashboardView extends GetView<DashboardController> {
-  //final DashboardController dashboardController =
-  //    Get.put(DashboardController());
-  const DashboardView({Key? key}) : super(key: key);
+  DashboardController dashboardController = Get.put(DashboardController());
   @override
   Widget build(BuildContext context) {
     return GetBuilder<DashboardController>(builder: (controller) {
       return Scaffold(
-        // appBar: AppBar(
-
-        // ),
         body: SafeArea(
-            child: IndexedStack(
-          index: controller.tabIndex,
-          children: [
-            berandapage(),
-            PesananView(),
-            ProfilePageView(),
-          ],
-        )),
-        // const Center(
-        //   child: Text(
-        //     'DashboardView is working',
-        //     style: TextStyle(fontSize: 20),
-        //   ),
-        // ),
+          child: IndexedStack(
+            index: controller.tabIndex,
+            children: [
+              berandapage(),
+              PesananView(),
+              ProfilePageView(),
+            ],
+          )),
         bottomNavigationBar: BottomNavigationBar(
-          // showSelectedLabels: false,
           showUnselectedLabels: false,
           unselectedItemColor: Colors.grey,
           type: BottomNavigationBarType.fixed,

@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jasa_go/app/modules/login/views/login_view.dart';
 
 import '../controllers/splach_screen_2_controller.dart';
 
@@ -96,7 +97,9 @@ class SplachScreen2View extends GetView<SplachScreen2Controller> {
                   left: 25,
                   right: 25,
                   child: GestureDetector(
-                    onTap: () {print("tes");},
+                    onTap: () {
+                      Get.to(LoginView());
+                    },
                     child : Container(
                       alignment: Alignment.center,
                       height: 44,

@@ -1,13 +1,25 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
 
 import '../controllers/ubah_sandi_controller.dart';
 
 class UbahSandiView extends GetView<UbahSandiController> {
+  final _newPassController = TextEditingController();
+  final _oldPassController = TextEditingController();
+  final _newPassController2 = TextEditingController();
+  var isButtonActive = true.obs;
+
+  void isChange() {
+    if (_newPassController.text.isNotEmpty && _newPassController2.text.isNotEmpty  && _oldPassController.text.isNotEmpty) {
+      isButtonActive(false);
+    } else {
+      isButtonActive(true);
+    }
+  }
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,7 +49,6 @@ class UbahSandiView extends GetView<UbahSandiController> {
           color: Colors.white),
       ),
       body: SafeArea(
-        // ignore: prefer_const_constructors
         child: Padding(
           padding: EdgeInsets.symmetric(horizontal: 24),
           child: SingleChildScrollView(
@@ -58,7 +69,10 @@ class UbahSandiView extends GetView<UbahSandiController> {
                   children: [
                     Expanded(
                       child: TextField(
-                        //controller: _emailEditingController,
+                        onChanged: (value) {
+                          isChange();
+                        },
+                        controller: _oldPassController,
                         decoration: InputDecoration(
                           suffixIcon: Icon(Icons.remove_red_eye_outlined),
                           filled: true,
@@ -88,7 +102,10 @@ class UbahSandiView extends GetView<UbahSandiController> {
                   children: [
                     Expanded(
                       child: TextField(
-                        //controller: _emailEditingController,
+                        onChanged: (value) {
+                          isChange();
+                        },
+                        controller: _newPassController,
                         decoration: InputDecoration(
                           suffixIcon: Icon(Icons.remove_red_eye_outlined),
                           filled: true,
@@ -113,12 +130,15 @@ class UbahSandiView extends GetView<UbahSandiController> {
                     )
                   ],
                 ),
-                SizedBox(height: 16),
+                SizedBox(height: 16), 
                 Row(
                   children: [
                     Expanded(
                       child: TextField(
-                        //controller: _emailEditingController,
+                        onChanged: (value) {
+                          isChange();
+                        },
+                        controller: _newPassController2,
                         decoration: InputDecoration(
                           suffixIcon: Icon(Icons.remove_red_eye_outlined),
                           filled: true,
@@ -142,6 +162,37 @@ class UbahSandiView extends GetView<UbahSandiController> {
                       ),
                     )
                   ],
+                ),
+              SizedBox(height: 16),
+               Obx(() =>  GestureDetector(
+                onTap: () {
+                  Get.to(() => ProfilePageView());
+                },
+                child : Container(
+                  alignment: Alignment.center,
+                  height: 48,
+                  width: 355,
+                  decoration: BoxDecoration(
+                    gradient: isButtonActive.value 
+                    ?
+                    LinearGradient(
+                      colors: [Colors.grey,Colors.grey],
+                    )
+                    : 
+                     LinearGradient(
+                      colors: [Color(0xFF0066FF),Color(0xFF23A9F8)]
+                    ),
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Text("Ubah Password",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color : Colors.white
+                    ),
+                  ),
+                    )
+                  )
                 ),
               ],
             ),

@@ -1,10 +1,9 @@
-import 'package:cloud_firestore/cloud_firestore.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jasa_go/app/modules/login/views/login_view.dart';
 import 'package:jasa_go/app/shared/widgets/edit_akun_widget.dart';
 
 import '../controllers/edit_akun_controller.dart';
@@ -44,77 +43,75 @@ class EditAkunView extends GetView<EditAkunController> {
           child: Column(
             children: [
               SizedBox(height: 24),
-                    Align(
-                      child: CircleAvatar(
-                        radius: 50,
-                        child: Container(
-                          width: 100,
-                          height: 100,
-                          decoration: BoxDecoration (
-                            shape: BoxShape.circle,
-                            gradient: LinearGradient(
-                              colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
+              Stack(
+                children: [
+                  CircleAvatar(
+                    radius: 50,
+                    backgroundColor: Colors.grey.shade200,
+                    child: CircleAvatar(
+                      radius: 50,
+                      child: Container(
+                        width: 100,
+                        height: 100,
+                        decoration: BoxDecoration (
+                          shape: BoxShape.circle,
+                          gradient: LinearGradient(
+                            colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
+                          ),
+                        ),
+                        child: Image.asset('assets/image/avatar.png'),
+                      ),
+                    ),
+                  ),
+                  Positioned(
+                    bottom: 1,
+                    right: 1,
+                    child: Container(
+                      child: Padding(
+                        padding: const EdgeInsets.all(2.0),
+                        child: Image.asset('assets/image/pencil-line.png'),
+                      ),
+                      decoration: BoxDecoration(
+                          border: Border.all(
+                            width: 3,
+                            color: Colors.transparent,
+                          ),
+                          borderRadius: BorderRadius.all(
+                            Radius.circular(
+                              50,
                             ),
                           ),
-                          child: Image.asset('assets/image/avatar.png'),
-                        ),
-                      ),
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              offset: Offset(2, 4),
+                              color: Colors.black.withOpacity(
+                                0.3,
+                              ),
+                              blurRadius: 3,
+                            ),
+                          ]),
                     ),
+                  ),
+                ],
+              ),
+              // Align(
+              //   child: CircleAvatar(
+              //     radius: 50,
+              //     child: Container(
+              //       width: 100,
+              //       height: 100,
+              //       decoration: BoxDecoration (
+              //         shape: BoxShape.circle,
+              //         gradient: LinearGradient(
+              //           colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
+              //         ),
+              //       ),
+              //       child: Image.asset('assets/image/avatar.png'),
+              //     ),
+              //   ),
+              // ),
               EditAkunWidget(),
-              SizedBox(height: 224),
-              GestureDetector(
-              onTap: () {print("tst");},
-              child : Container(
-                alignment: Alignment.center,
-                height: 48,
-                width: 355,
-                decoration: BoxDecoration(
-                  gradient: LinearGradient(
-                    colors: [Color(0xFF0066FF),Color(0xFF23A9F8)],
-                  ),
-                  borderRadius: BorderRadius.circular(8)
-                ),
-                child: Text("Simpan Perubahan",
-                  style: GoogleFonts.montserrat(
-                    fontSize: 16,
-                    fontWeight: FontWeight.bold,
-                    color : Colors.white
-                  ),
-                
-                ),
-              )
-            ),
-            SizedBox(height: 16),
-              GestureDetector(
-                onTap : () {
-                  Get.to(() => LoginView());
-                },
-                child: Container(
-                  height: 48,
-                  width: 358,
-                  decoration: BoxDecoration(
-                    color: Colors.transparent,
-                    border: Border.all(color: Colors.red, width: 2),
-                    borderRadius: BorderRadius.circular(12)
-                  ),
-                  child: Center(
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        Image.asset('assets/image/log-out-02.png'),
-                        SizedBox(width: 16),
-                        Text('Logout', 
-                        style: GoogleFonts.montserrat(
-                          fontSize : 16,
-                          color: Colors.red,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      ],
-                    ),
-                  ),
-                ),
-              )
             ],
           ),
         ),

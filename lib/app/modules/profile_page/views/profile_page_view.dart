@@ -6,7 +6,7 @@ import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:jasa_go/app/modules/edit_akun/views/edit_akun_view.dart';
+
 import 'package:jasa_go/app/shared/widgets/profile_option.dart';
 
 import '../controllers/profile_page_controller.dart';

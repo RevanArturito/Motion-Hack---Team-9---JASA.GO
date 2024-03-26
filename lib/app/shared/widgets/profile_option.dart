@@ -3,11 +3,13 @@ import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:jasa_go/app/modules/edit_akun/views/edit_akun_view.dart';
 import 'package:jasa_go/app/modules/ketentuan_privasi/views/ketentuan_privasi_view.dart';
+import 'package:jasa_go/app/modules/notifikasi/views/notifikasi_view.dart';
 import 'package:jasa_go/app/modules/ubah_sandi/views/ubah_sandi_view.dart';
+import 'package:flutter_advanced_switch/flutter_advanced_switch.dart';
 
 class ProfileOption extends StatelessWidget {
-  const ProfileOption({super.key});
-
+  //const ProfileOption({super.key});
+  final _controller = ValueNotifier<bool>(false);
   @override
   Widget build(BuildContext context) {
     return Column(
@@ -105,7 +107,9 @@ class ProfileOption extends StatelessWidget {
         Padding(
           padding: EdgeInsets.symmetric(horizontal: 35),
           child: GestureDetector(
-            onTap: () {print("test");},
+            onTap: () {
+              Get.to(() => NotifikasiView());
+            },
             child: Column(
               children: [
                 Row(
@@ -120,7 +124,20 @@ class ProfileOption extends StatelessWidget {
                       ),
                     ),
                     Spacer(),
-                    //Icon(Icons.chevron_right_outlined, size: 30),
+                    AdvancedSwitch(
+                        controller: _controller,
+                        activeColor:  Color(0xFF0066FF),
+                        inactiveColor: Colors.grey,
+                        activeChild: Text(''),
+                        inactiveChild: Text(''), 
+                        //activeImage: AssetImage('assets/images/on.png'),
+                        //inactiveImage: AssetImage('assets/images/off.png'),
+                        borderRadius: BorderRadius.all(const Radius.circular(15)),
+                        width: 50.0,
+                        height: 30.0,
+                        enabled: true,
+                        disabledOpacity: 0.5,
+                    ),
                   ],
                 ),
                 SizedBox(height: 20),

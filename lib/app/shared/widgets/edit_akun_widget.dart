@@ -1,9 +1,17 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:jasa_go/app/modules/profile_page/views/profile_page_view.dart';
+
 
 class EditAkunWidget extends StatelessWidget {
   //const EditAkunWidget({super.key});
-
+  var isButtonActive = true.obs;
+  var isButtonNamaActive = true.obs;
+  var isButtonEmailActive = true.obs;
+  var isButtonNoHpActive = true.obs;
+  
   @override
   Widget build(BuildContext context) {
     return SingleChildScrollView(
@@ -21,6 +29,37 @@ class EditAkunWidget extends StatelessWidget {
         final TextEditingController _namaEditingController = TextEditingController(text: snapshot.data!.docs.first['nama_lengkap']);
         final TextEditingController _noHpEditingController = TextEditingController(text: snapshot.data!.docs.first['no_hp']);
         final TextEditingController _emailEditingController = TextEditingController(text: snapshot.data!.docs.first['email']);
+
+        void isChangeNama(String cekNama) {
+          if (snapshot.data!.docs.first['nama_lengkap'] != cekNama) {
+             isButtonNamaActive(true);
+          } else {
+            isButtonNamaActive(false);
+          }
+        }
+
+         void isChangeNoHp(String cekNoHp) {
+          if (snapshot.data!.docs.first['no_hp'] != cekNoHp) {
+            isButtonNoHpActive(true);
+          } else {
+            isButtonActive(false);
+          }
+        }
+
+        void isChangeEmail(String cekEmail) {
+          if (snapshot.data!.docs.first['email'] != cekEmail) {
+            isButtonEmailActive(true);
+          } else {
+            isButtonEmailActive(true);
+          }
+        }
+        void isChange() {
+          if (isButtonEmailActive.value || isButtonNamaActive.value || isButtonNoHpActive.value) {
+            isButtonActive(true);
+          } else {
+            isButtonActive(false);
+          }
+        }
         return Column(
           children: [
             SizedBox(height: 36),
@@ -28,6 +67,9 @@ class EditAkunWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                    onChanged: (value) {
+                      isChangeNama(_namaEditingController.text);
+                    },
                     controller: _namaEditingController,
                     decoration: InputDecoration(
                       suffixIcon: Image.asset('assets/image/pencil-line.png'),
@@ -69,6 +111,9 @@ class EditAkunWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                     onChanged: (value) {
+                      isChangeNoHp(_noHpEditingController.text);
+                    },
                     controller: _noHpEditingController,
                     decoration: InputDecoration(
                       suffixIcon: Image.asset('assets/image/pencil-line.png'),
@@ -110,6 +155,9 @@ class EditAkunWidget extends StatelessWidget {
               children: [
                 Expanded(
                   child: TextField(
+                     onChanged: (value) {
+                      isChangeEmail(_emailEditingController.text);
+                    },
                     controller: _emailEditingController,
                     decoration: InputDecoration(
                       suffixIcon: Image.asset('assets/image/pencil-line.png'),
@@ -146,7 +194,38 @@ class EditAkunWidget extends StatelessWidget {
                 )
               ],
             ),
-          
+             SizedBox(height: 224),
+             Obx(() =>  GestureDetector(
+                onTap: () {
+                  Get.to(() => ProfilePageView());
+                },
+                child : Container(
+                  alignment: Alignment.center,
+                  height: 48,
+                  width: 355,
+                  decoration: BoxDecoration(
+                    gradient: isButtonActive.value 
+                    ?
+                    LinearGradient(
+                      colors: [Color(0xFF0066FF),Color(0xFF23A9F8)]           
+                    )
+                    : 
+                     LinearGradient(
+                      colors: [Colors.grey,Colors.grey],
+                    ),
+                    borderRadius: BorderRadius.circular(8)
+                  ),
+                  child: Text("Simpan",
+                    style: GoogleFonts.montserrat(
+                      fontSize: 16,
+                      fontWeight: FontWeight.bold,
+                      color : Colors.white
+                    ),
+                  ),
+                    )
+                  )
+                ),
+              SizedBox(height: 16),
           ],
         );
         }

@@ -4,6 +4,12 @@ import 'package:jasa_go/app/modules/edit_akun/bindings/edit_akun_binding.dart';
 import 'package:jasa_go/app/modules/edit_akun/views/edit_akun_view.dart';
 import 'package:jasa_go/app/modules/ketentuan_privasi/bindings/ketentuan_privasi_binding.dart';
 import 'package:jasa_go/app/modules/ketentuan_privasi/views/ketentuan_privasi_view.dart';
+import 'package:jasa_go/app/modules/notifikasi/bindings/notifikasi_binding.dart';
+import 'package:jasa_go/app/modules/notifikasi/views/notifikasi_view.dart';
+import 'package:jasa_go/app/modules/pembayaran/bindings/pembayaran_binding.dart';
+import 'package:jasa_go/app/modules/pembayaran/views/pembayaran_view.dart';
+import 'package:jasa_go/app/modules/pembayaran2/bindings/pembayaran2_binding.dart';
+import 'package:jasa_go/app/modules/pembayaran2/views/pembayaran2_view.dart';
 import 'package:jasa_go/app/modules/pencarian/bindings/pencarian_binding.dart';
 import 'package:jasa_go/app/modules/pencarian/views/pencarian_view.dart';
 import 'package:jasa_go/app/modules/profile_page/bindings/profile_page_binding.dart';
@@ -19,10 +25,6 @@ import '../modules/home/bindings/home_binding.dart';
 import '../modules/home/views/home_view.dart';
 import '../modules/login/bindings/login_binding.dart';
 import '../modules/login/views/login_view.dart';
-import '../modules/pesanan/bindings/pesanan_binding.dart';
-import '../modules/pesanan/views/pesanan_view.dart';
-import '../modules/register/bindings/register_binding.dart';
-import '../modules/register/views/register_view.dart';
 import '../modules/splach_screen_2/bindings/splach_screen_2_binding.dart';
 import '../modules/splach_screen_2/views/splach_screen_2_view.dart';
 import '../modules/splash_screen/bindings/splash_screen_binding.dart';
@@ -33,7 +35,7 @@ part 'app_routes.dart';
 class AppPages {
   AppPages._();
 
-  static const INITIAL = Routes.LOGIN;
+  static const INITIAL = Routes.PEMBAYARAN;
 
   static final routes = [
     GetPage(
@@ -63,7 +65,7 @@ class AppPages {
     ),
     GetPage(
       name: _Paths.DASHBOARD,
-      page: () => const DashboardView(),
+      page: () => DashboardView(),
       binding: DashboardBinding(),
     ),
     GetPage(
@@ -90,6 +92,21 @@ class AppPages {
       name: _Paths.PENCARIAN,
       page: () => PencarianView(),
       binding: PencarianBinding(),
+    ),
+    GetPage(
+      name: _Paths.NOTIFIKASI,
+      page: () => NotifikasiView(),
+      binding: NotifikasiBinding(),
+    ),
+    GetPage(
+      name: _Paths.PEMBAYARAN,
+      page: () => PembayaranView(),
+      binding: PembayaranBinding(),
+    ),
+    GetPage(
+      name: _Paths.PEMBAYARAN2,
+      page: () => Pembayaran2View(),
+      binding: Pembayaran2Binding(),
     ),
   ];
 }

@@ -16,6 +16,9 @@ abstract class Routes {
   static const KETENTUAN_PRIVASI = _Paths.KETENTUAN_PRIVASI;
   static const UBAH_SANDI = _Paths.UBAH_SANDI;
   static const PENCARIAN = _Paths.PENCARIAN;
+  static const NOTIFIKASI = _Paths.NOTIFIKASI;
+  static const PEMBAYARAN = _Paths.PEMBAYARAN;
+  static const PEMBAYARAN2 = _Paths.PEMBAYARAN2;
 }
 
 abstract class _Paths {
@@ -33,4 +36,7 @@ abstract class _Paths {
   static const KETENTUAN_PRIVASI = '/ketentuan-privasi';
   static const UBAH_SANDI = '/ubah-sandi';
   static const PENCARIAN = '/pencarian';
+  static const NOTIFIKASI = '/notifikasi';
+  static const PEMBAYARAN = '/pembayaran';
+  static const PEMBAYARAN2 = '/pembayaran2';
 }
